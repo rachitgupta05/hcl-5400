@@ -4,9 +4,7 @@ import org.abesproject.hclhrms.EmployeeServiceImp;
 import org.abesproject.hclhrms.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -39,4 +37,15 @@ public class EmployeeController {
     public String addBulk(){
         return employeeServiceImp.addEmpBulk();
     }
+
+    @GetMapping("/updatebyid/{id}")
+    public String updateEmp(@PathVariable("id") long emp_id, @RequestBody Employee updated){
+        return employeeServiceImp.updateById(emp_id, updated);
+    }
+
+    @GetMapping("/deletebyid/{id}")
+    public String deleteById(@PathVariable("id") long emp_id){
+        return employeeServiceImp.deleteById(emp_id);
+    }
+
 }

@@ -36,11 +36,29 @@ public class EmployeeRepositoryImple implements EmployeeRepository{
 
     @Override
     public String deleteById(long emp_id) {
-        return "";
+        Employee e=getEmpById(emp_id);
+
+        if(e==null){
+            return "Employee Not Found";
+        }
+
+        emplist.remove(e);
+        return "Employee is deleted Successfully";
     }
 
     @Override
     public String updateById(long emp_id, Employee updated) {
-        return "";
+        Employee e=getEmpById(emp_id);
+
+        if(e==null){
+            return "Employee Not Found";
+        }
+        e.setEmp_name(updated.getEmp_name());
+        e.setDesignation(updated.getDesignation());
+        e.setEmail(updated.getEmail());
+        e.setProgStack(updated.getProgStack());
+
+        return "Employee Updated Successfully";
+
     }
 }

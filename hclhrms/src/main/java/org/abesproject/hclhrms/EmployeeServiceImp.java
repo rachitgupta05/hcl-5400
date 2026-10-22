@@ -33,6 +33,14 @@ public class EmployeeServiceImp {
     }
 
     public Employee getEmpById(long emp_id){
-       return emprepo.getEmpById(emp_id);
+        return emprepo.getEmpById(emp_id);
+    }
+
+    public String updateById(long emp_id, Employee updated){
+        return emprepo.updateById(emp_id, updated);
+    }
+
+    public String deleteById(long emp_id){
+        return emprepo.deleteById(emp_id);
     }
 }
