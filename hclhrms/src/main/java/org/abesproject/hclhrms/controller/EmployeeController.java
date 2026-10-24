@@ -18,7 +18,7 @@ public class EmployeeController {
         return "<h1>Welcome to HRMS App<h1/>";
     }
 
-    @GetMapping("/addemp")
+    @PostMapping("/addemp")
     public String addNewEmployee(){
         return employeeServiceImp.addEmp();
     }
@@ -33,17 +33,17 @@ public class EmployeeController {
         return employeeServiceImp.getEmpById(emp_id);
     }
 
-    @GetMapping("/addinbulk")
+    @PostMapping("/addinbulk")
     public String addBulk(){
         return employeeServiceImp.addEmpBulk();
     }
 
-    @GetMapping("/updatebyid/{id}")
+    @PutMapping("/updatebyid/{id}")
     public String updateEmp(@PathVariable("id") long emp_id, @RequestBody Employee updated){
         return employeeServiceImp.updateById(emp_id, updated);
     }
 
-    @GetMapping("/deletebyid/{id}")
+    @DeleteMapping("/deletebyid/{id}")
     public String deleteById(@PathVariable("id") long emp_id){
         return employeeServiceImp.deleteById(emp_id);
     }

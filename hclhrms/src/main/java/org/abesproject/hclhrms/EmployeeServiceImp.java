@@ -14,7 +14,7 @@ public class EmployeeServiceImp {
     private EmployeeRepositoryImple emprepo;
 
     public String addEmp(){
-        Employee emp1=new Employee (200l, "Rahul", "FSD", "ADMIN", "admin@gmail.com");
+        Employee emp1=new Employee (200l, "Rahul", "ADMIN","FSD", "admin@gmail.com");
         return emprepo.addEmp(emp1);
     }
 
