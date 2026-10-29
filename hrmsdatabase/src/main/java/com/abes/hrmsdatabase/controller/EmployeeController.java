@@ -25,9 +25,14 @@ public class EmployeeController {
         return employeeService.createNewEmployee(newEmp);
     }
 
-    @GetMapping("/getbyid/{emp_id}")
-    public Employee getById(@PathVariable Long emp_id){
-        return employeeService.getById(emp_id);
+    @PostMapping("/login")
+    public String login(@RequestParam Long empId, @RequestParam String password){
+        return employeeService.login(empId, password);
+    }
+
+    @GetMapping("/getbyid/{empId}")
+    public Employee getById(@PathVariable Long empId){
+        return employeeService.getById(empId);
     }
 
     @GetMapping("/getemployees")
@@ -40,14 +45,15 @@ public class EmployeeController {
         return employeeService.addInBulk();
     }
 
-    @PutMapping("/updatebyid/{emp_id}")
-    public String updateById(@PathVariable Long emp_id, @RequestBody Employee updated){
-        return employeeService.updateById(emp_id, updated);
+    @PutMapping("/updatebyid/{empId}")
+    public String updateById(@PathVariable Long empId, @RequestBody Employee updated){
+        return employeeService.updateById(empId, updated);
     }
 
-    @DeleteMapping("/deletebyid/{emp_id}")
-    public String deleteById(@PathVariable Long emp_id){
-        return employeeService.deleteById(emp_id);
+    @DeleteMapping("/deletebyid/{empId}")
+    public String deleteById(@PathVariable Long empId){
+        return employeeService.deleteById(empId);
     }
+
 }
 

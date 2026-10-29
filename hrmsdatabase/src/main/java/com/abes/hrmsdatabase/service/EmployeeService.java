@@ -19,8 +19,22 @@ public class EmployeeService {
         return "Employee is created Successfully";
     }
 
-    public Employee getById(Long emp_id){
-        return employeeRepository.findById(emp_id).orElse(null);
+    public String login(Long empId, String password){
+        Employee e=getById(empId);
+
+        if(e==null){
+            return "Employee not Found";
+        }
+
+        if(e.getPassword().equals(password)){
+            return "Login Successful";
+        }
+
+        return "Invalid password";
+    }
+
+    public Employee getById(Long empId){
+        return employeeRepository.findById(empId).orElse(null);
     }
 
     public List<Employee> getEmployees(){
@@ -36,28 +50,30 @@ public class EmployeeService {
         return "Employees added in bulk";
     }
 
-    public String updateById(Long emp_id, Employee updated){
-        Employee e=getById(emp_id);
+    public String updateById(Long empId, Employee updated){
+        Employee e=getById(empId);
 
         if(e==null){
             return "Employee not found";
         }
-        e.setEmp_name(updated.getEmp_name());
+        e.setEmpName(updated.getEmpName());
         e.setStack(updated.getStack());
         e.setDesignation(updated.getDesignation());
+        e.setEmail(updated.getEmail());
+        e.setPassword(updated.getPassword());
         employeeRepository.save(e);
 
         return "Employee is updated successfully";
     }
 
-    public String deleteById(long emp_id){
-        Employee e=getById(emp_id);
+    public String deleteById(long empId){
+        Employee e=getById(empId);
 
         if(e==null){
             return "Employee not found";
         }
 
-        employeeRepository.deleteById(emp_id);
+        employeeRepository.deleteById(empId);
         return "Employee is deleted successfully";
     }
 }

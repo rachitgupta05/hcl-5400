@@ -2,13 +2,15 @@ package com.abes.hrmsdatabase.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
 
     @Id
-    private Long emp_id;
-    private String emp_name;
+    private Long empId;
+    private String empName;
     private String stack;
     private String designation;
     private String email;
@@ -19,29 +21,29 @@ public class Employee {
 
     }
 
-    public Employee(Long emp_id, String emp_name, String stack, String designation, String email, String password) {
-        this.emp_id = emp_id;
-        this.emp_name = emp_name;
+    public Employee(Long empId, String empName, String stack, String designation, String email, String password) {
+        this.empId = empId;
+        this.empName = empName;
         this.stack = stack;
         this.designation = designation;
         this.email=email;
         this.password=password;
     }
 
-    public Long getEmp_id() {
-        return emp_id;
+    public Long getEmpId() {
+        return empId;
     }
 
-    public void setEmp_id(Long emp_id) {
-        this.emp_id = emp_id;
+    public void setEmpId(Long empId) {
+        this.empId = empId;
     }
 
-    public String getEmp_name() {
-        return emp_name;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setEmp_name(String emp_name) {
-        this.emp_name = emp_name;
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 
     public String getStack() {
